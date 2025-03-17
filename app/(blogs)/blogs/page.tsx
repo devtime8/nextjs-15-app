@@ -1,5 +1,7 @@
 // "use client"
 
+import Link from "next/link"
+
 // import { useEffect } from 'react';
 // import { useState } from 'react';
 
@@ -28,7 +30,20 @@ export default async function Page() {
         {/* {posts.map((post) => (
           <li key={post.id}>{post.title}</li>
         ))} */} 
-        {JSON.stringify(posts)}
+        {/* {JSON.stringify(posts)} */}
+ 
+        {
+          posts.map(
+            (post) => (
+
+              <li key={post.id}>
+                <Link href={`/blogs/${post.id}`}>
+                {post.title} ({post.content})
+                </Link>  
+              </li>
+            )
+          )
+        } 
       </ul>
     )
   }

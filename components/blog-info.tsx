@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation"
 import { API_URL } from "../app/(home)/page"
-import { fetchMovieDetails } from "../app/actions"
 
 
 
@@ -33,19 +32,20 @@ async function getPost(id: string) {
 
 
 
-export default async function MovieInfo({id}: {id:string}){
+export default async function BlogInfo({id}: {id:string}){
 
     const post = await getPost(id)
-    const movie = await fetchMovieDetails(id);
-    console.log(movie)
+    return <div>
 
-    return <div> 
-            <h1>{movie.original_title}</h1>
-            <img  
-    src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} 
-    alt={movie.title}  />
-    <img  
-src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
-alt={movie.title}  />
+
+<h1>movie id={id}</h1>
+            
+            <article>
+            <h1>{post.title}</h1>
+            <p>{post.content}</p>
+            </article>
+
+
     </div>
 }
+ 

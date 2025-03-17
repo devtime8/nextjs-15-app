@@ -1,6 +1,10 @@
 import { Metadata } from "next"
 import Navigation from "../components/navigation"
 
+
+import '../styles/glabal.css'
+
+
 const title2 = 'Next Movies2'
 
 export const metadata :Metadata ={

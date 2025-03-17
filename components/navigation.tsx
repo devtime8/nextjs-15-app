@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import styles from '../styles/navigation.module.css'
 export default function Navigation() {
 
 
@@ -17,13 +18,13 @@ export default function Navigation() {
 
 
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul>
         <li>
-          <Link href="/blog">blog</Link>{path === '/blog' ? '😄' : ''}
+          <Link href="/">Home</Link>{path === '/' ? '😄' : ''}
         </li>
         <li>
-          <Link href="/">Home</Link>{path === '/' ? '😄' : ''}
+          <Link href="/blogs">blogs</Link>{path === '/blog' ? '😄' : ''}
         </li>
         <li>
           <Link href="/about-us">About Us</Link>{path === '/about-us' ? '😄' : ''}
