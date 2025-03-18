@@ -11,7 +11,7 @@ export default function LikeButton({ initialLikes }: { initialLikes: number }) {
       <p>Total Likes: {likes}</p>
       <button
         onClick={async () => {
-          const updatedLikes = await incrementLike()
+          const updatedLikes = await incrementLike(likes)
           setLikes(updatedLikes)
         }}
       >

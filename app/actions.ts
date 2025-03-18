@@ -1,5 +1,19 @@
 // 'use server'
 
+
+
+
+export async function incrementLike(likes: number) { 
+
+
+
+
+  // Update data
+  // Revalidate cache
+  return likes+1
+}
+
+
 export async function createPost(formData: FormData) {
   const title = formData.get("title");
   const content = formData.get("content");
