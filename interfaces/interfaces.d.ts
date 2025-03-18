@@ -78,8 +78,8 @@ interface Movie {
   
 
   interface Video {
-    id: number;
-    results: { 
+    // id: number;
+    // results: { 
       iso_639_1: string;
       iso_3166_1: string;
       name: string;
@@ -90,5 +90,5 @@ interface Movie {
       official: boolean;
       published_at: string;
       id: string; 
-    }[]; 
+    // }[]; 
   }

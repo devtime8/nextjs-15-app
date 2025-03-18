@@ -77,7 +77,7 @@ export const fetchMovieDetails = async (
   }
 };
 
-export const getVideos = async (movieId: string): Promise<Video> => {
+export const getVideos = async (movieId: string): Promise<Video[]> => {
   try {
     const response = await fetch(
       // `${TMDB_CONFIG.BASE_URL}/movie/${movieId}/videos?language=en-US`,
@@ -94,9 +94,9 @@ export const getVideos = async (movieId: string): Promise<Video> => {
 
     const data = await response.json();
 
-    // console.log('ㅁ■■■■■ data=', data)
+    return data.results;
 
-    return data;
+    
   } catch (error) {
     console.error("Error fetching movie details:", error);
     throw error;
