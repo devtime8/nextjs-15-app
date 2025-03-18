@@ -1,39 +1,40 @@
-import { notFound } from "next/navigation"
-import { API_URL } from "../../../(home)/page"
-import MovieVideos from "../../../../components/movie-videos"
-import MovieInfo from "../../../../components/movie-info"
-import { Suspense } from "react"
-interface Post {
-    id: string
-    title: string
-    content: string
-    error?: string
-  }
-   
+import { notFound } from "next/navigation";
+import MovieVideos from "../../../../components/movie-videos";
+import MovieInfo from "../../../../components/movie-info";
+import { Suspense } from "react";
+import { title } from "process";
+import { fetchMovieDetails } from "../../../actions";
 
-export default async  function MovieDetail(
-    {
-        params
-    } 
-    : 
-    {
-        params: Promise<{ id: string }>
-    }
-){ 
-    const { id } = await params 
+interface IParams {
+  params: { id: string };
+}
 
+export async function generateMetadata({ params: { id } }: IParams) {
+  const movie: MovieDetails = await fetchMovieDetails(id);
 
+  return {
+    title: movie.title,
+  };
+}
 
-    
-    return (
-        <div> 
-                    <h1>movie id={id}</h1>
-                    {/* <Suspense fallback={<div>Loading... videos</div>}>
-                        <MovieVideos  id={id}/>
-                    </Suspense> */}
-                    <Suspense fallback={<div>Loading..  movie .... info</div>}>
-                        <MovieInfo  id={id}/> 
-                    </Suspense>
-        </div>
-    )
+export default async function MovieDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
+  return (
+    <div>
+      {/* <h1>movie id={id}</h1> */}
+      <h3>Movie detail page</h3>
+      <Suspense fallback={<div>Loading.. movie .... info</div>}>
+        <MovieInfo id={id} />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading... videos</div>}>
+        <MovieVideos id={id} />
+      </Suspense>
+    </div>
+  );
 }

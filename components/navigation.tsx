@@ -24,14 +24,14 @@ export default function Navigation() {
           <Link href="/">Home</Link>{path === '/' ? '😄' : ''}
         </li>
         <li>
-          <Link href="/blogs">blogs</Link>{path === '/blog' ? '😄' : ''}
+          <Link href="/blogs">blogs</Link>{path === '/blogs' ? '😄' : ''}
         </li>
         <li>
           <Link href="/about-us">About Us</Link>{path === '/about-us' ? '😄' : ''}
         </li>
-        <li>
+        {/* <li>
           <Link href="/movies/1">movies/1</Link>{path === '/movies/1' ? '😄' : ''}
-        </li>
+        </li> */}
         <li>
           <button onClick={() => { setCount((c) => c + 1) }}>{count}</button>
         </li>
