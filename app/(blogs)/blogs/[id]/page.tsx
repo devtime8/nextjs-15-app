@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation"
-import { API_URL } from "../../../(home)/page"
 import MovieVideos from "../../../../components/movie-videos"
 import MovieInfo from "../../../../components/movie-info"
 import { Suspense } from "react"
