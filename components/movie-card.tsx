@@ -16,6 +16,6 @@ export default function MovieCard({movie} :{movie: Movie} ){
     <img onClick={onClick}
     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
     alt={movie.title}  />
-    <Link href={`/movies/${movie.id}`}>{movie.title} </Link>  
+    <Link prefetch href={`/movies/${movie.id}`}>{movie.title} </Link>  
   </div>
 }
